@@ -1,0 +1,27 @@
+- Ionic y cordova puntualmente puede instalar pluggins para extender la funcionalidad del app y hacer cosas nativas, por ejemplo para
+  poder scanear un codigo de barras podemos instalar un pluggin con la ayuda de cordova:
+  "ionic cordova plugin add phonegap-plugin-barcodescanner" y luego lo instalamos "npm install --save @ionic-native/barcode-scanner" todo esto lo podemos
+  encontrar en la documentación, sección native.
+
+- Al añadir plugins, se debe importar en la página que se va a usar y en el "app.module.ts" en la sección de providers.
+
+- Para comenzar a hacer deploy de la app en las plataformas android/ios comenzamos por agregarlos, de esta forma agregamos todos los pluggins y
+  lo necesario para un proyecto android.
+  * ionic cordova platform add android
+
+- Luego tenemos que crear una aplicación android como tal, es decir, coger todo nuestro código y empaquetarlo para que android lo reconosca
+  * ionic cordova build android
+
+- Si algo sale mal podemos eliminar la plataformado agregada con: ionic cordova platform remove android.
+
+- En ionic es más común llamar "provider" a los servicios, por ello al momento de crearlos usamos: ionic g provider historial
+  y se debe importar en el app.module.ts
+
+- Para poder abrir abrir el navegador web nativo del celular, al momento de scanear un código QR, necesitamos agregar el pluggin "in App Browser"
+  de la misma forma que lo hicimos con el barcode scanner: 
+  "ionic cordova plugin add cordova-plugin-inappbrowser" y lo instalamos con "npm install --save @ionic-native/in-app-browser"
+
+- Para ejecutar nuestra app directamente en el celular podemos ejecuta "ionic cordova run android --device" pero debe de estar el android studio abierto
+
+- Hay una forma práctica y sencilla de trabajar con mapas en angular y ionic: angular-maps. Podemos instalarlo en el proyecto directamente con
+  "npm install @agm/core --save" luego se importa e incluye en el app.module.ts según como indica la librería
